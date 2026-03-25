@@ -225,6 +225,24 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.35);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4);
+
+  /* Dark mode button tokens */
+  --sb-btn-shadow-focus: 0 0 0 3px rgba(79, 221, 191, 0.35);
+  --sb-btn-shadow-active: inset 0 2px 0 rgba(0, 0, 0, 0.28);
+  --sb-btn-secondary-bg: #0f172a;
+  --sb-btn-secondary-text: #e2e8f0;
+  --sb-btn-secondary-border: #334155;
+  --sb-btn-secondary-hover: #111b31;
+  --sb-btn-secondary-active: #1e293b;
+  --sb-btn-tertiary-bg: #1e293b;
+  --sb-btn-tertiary-text: #e2e8f0;
+  --sb-btn-tertiary-border: #334155;
+  --sb-btn-tertiary-hover: #334155;
+  --sb-btn-tertiary-active: #475569;
+  --sb-btn-ghost-text: #e2e8f0;
+  --sb-btn-ghost-hover: rgba(226, 232, 240, 0.12);
+  --sb-btn-ghost-active: rgba(226, 232, 240, 0.2);
+  --sb-btn-link-text: var(--ifm-color-primary-lightest);
 }
 
 /* ── Global Styles ──────────────────────────────────────────────────────────── */
@@ -360,29 +378,9 @@ html {
   footer {
     display: none !important;
   }
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-
-  --sb-btn-shadow-focus: 0 0 0 3px rgba(79, 221, 191, 0.35);
-  --sb-btn-shadow-active: inset 0 2px 0 rgba(0, 0, 0, 0.28);
-
-  --sb-btn-secondary-bg: #0f172a;
-  --sb-btn-secondary-text: #e2e8f0;
-  --sb-btn-secondary-border: #334155;
-  --sb-btn-secondary-hover: #111b31;
-  --sb-btn-secondary-active: #1e293b;
-
-  --sb-btn-tertiary-bg: #1e293b;
-  --sb-btn-tertiary-text: #e2e8f0;
-  --sb-btn-tertiary-border: #334155;
-  --sb-btn-tertiary-hover: #334155;
-  --sb-btn-tertiary-active: #475569;
-
-  --sb-btn-ghost-text: #e2e8f0;
-  --sb-btn-ghost-hover: rgba(226, 232, 240, 0.12);
-  --sb-btn-ghost-active: rgba(226, 232, 240, 0.2);
-
-  --sb-btn-link-text: var(--ifm-color-primary-lightest);
 }
+
+/* ── Transition utilities ───────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   :root {
@@ -392,7 +390,6 @@ html {
   }
 }
 
-/* Transition utilities */
 .sb-transition-none {
   transition: none !important;
 }
@@ -412,7 +409,8 @@ html {
   transition-timing-function: var(--sb-motion-ease-standard) !important;
 }
 
-/* Button */
+/* ── Button ─────────────────────────────────────────────────────────────────── */
+
 .sb-btn {
   --_btn-bg: var(--sb-btn-primary-bg);
   --_btn-text: var(--sb-btn-primary-text);
@@ -580,7 +578,8 @@ html {
   border-color: transparent;
 }
 
-/* Button group */
+/* ── Button group ───────────────────────────────────────────────────────────── */
+
 .sb-btn-group {
   display: inline-flex;
   align-items: stretch;
@@ -621,7 +620,8 @@ html {
   margin-top: -1px;
 }
 
-/* Icon System */
+/* ── Icon System ────────────────────────────────────────────────────────────── */
+
 .icon {
   display: inline-flex;
   align-items: center;
@@ -677,4 +677,37 @@ html {
 
 .icon--right {
   margin-left: 0.5rem;
+}
+
+/* ── ISSUE #35: Skeleton Loading Primitives ─────────────────────────────────── */
+
+@keyframes shimmerEffect {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-loader {
+  background: #e5e7eb !important;
+  background-image: linear-gradient(
+    90deg, 
+    rgba(255, 255, 255, 0) 0, 
+    rgba(255, 255, 255, 0.2) 20%, 
+    rgba(255, 255, 255, 0.5) 60%, 
+    rgba(255, 255, 255, 0)
+  ) !important;
+  background-color: var(--ifm-color-emphasis-200) !important;
+  background-size: 200% 100% !important;
+  animation: shimmerEffect 2s infinite !important;
+}
+
+[data-theme='dark'] .skeleton-loader {
+  background-color: var(--ifm-color-emphasis-100) !important;
+  opacity: 0.5;
+}
+
+.spinner-loader {
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top-color: var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: sb-spin 0.8s linear infinite !important;
 }
