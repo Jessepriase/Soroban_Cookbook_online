@@ -1,11 +1,11 @@
 ---
 title: Debugging Guide
-description: Systematic debugging workflows and practical troubleshooting techniques for Soroban Cookbook Online development
+description: Systematic debugging workflows and practical troubleshooting techniques for Soroban smart contract development
 ---
 
 # Debugging Guide
 
-Learn systematic debugging techniques to quickly identify and resolve issues in this contract development. This guide covers the debugging workflow, common issues across different failure categories, and practical development tools.
+Learn systematic debugging techniques to quickly identify and resolve issues in your contract development. This guide covers the debugging workflow, common issues across different failure categories, and practical development tools.
 
 ## Systematic Debugging Workflow
 
