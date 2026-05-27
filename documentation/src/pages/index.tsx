@@ -214,6 +214,7 @@ export default function Home() {
 
       <QuickStartSection />
       <NewsletterSignup />
+      <Testimonials />
     </Layout>
   );
 }
