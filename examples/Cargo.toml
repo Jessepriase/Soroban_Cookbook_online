@@ -4,5 +4,6 @@ members = [
     "counter",
     "token-transfer",
     "simple-dao",
+    "upgradeable",
 ]
 resolver = "2"
