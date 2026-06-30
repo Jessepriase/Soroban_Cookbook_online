@@ -247,10 +247,23 @@ jobs:
         env:
           CI: true
 
+  spell-check:
+    name: Spell Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Spell Check
+        uses: cspell/cspell-action@v8
+        with:
+          files: '**/*.md, **/*.mdx'
+          config: 'cspell.json'
+
   summary:
     name: CI Summary
     runs-on: ubuntu-latest
-    needs: [lint-format, typecheck, build-docs, validate-deployment, test-examples, e2e-console]
+    needs: [lint-format, typecheck, build-docs, validate-deployment, test-examples, e2e-console, spell-check]
     if: always()
     steps:
       - name: Check job statuses
@@ -277,6 +290,10 @@ jobs:
           fi
           if [ "${{ needs.e2e-console.result }}" != "success" ]; then
             echo "❌ Browser console audit failed"
+            exit 1
+          fi
+          if [ "${{ needs.spell-check.result }}" != "success" ]; then
+            echo "❌ Spell check failed"
             exit 1
           fi
           echo "✅ All CI checks passed"
