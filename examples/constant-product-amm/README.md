@@ -1,5 +1,11 @@
 # Constant-Product AMM
 
+## License and origin
+
+This crate is original to the [Soroban Cookbook](https://github.com/Soroban-Cookbook/Soroban_Cookbook_online) repository.
+It was not adapted from any external source.
+Licensed under the [MIT License](../../LICENSE) — Copyright (c) 2026 Soroban Cookbook.
+
 A two-token automated market maker using the `x * y = k` invariant, with liquidity provision, LP share accounting, and swaps in both directions.
 
 ## What it demonstrates
