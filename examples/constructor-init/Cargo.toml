@@ -3,6 +3,7 @@ name = "constructor-init"
 version = "0.1.0"
 edition = "2021"
 description = "Constructor arguments (__constructor) vs delayed initialize, with double-init tests"
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
